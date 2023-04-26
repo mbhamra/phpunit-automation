@@ -13,3 +13,5 @@ jobs:
       - name: Check version of installed PHPUnit
         run: |
           php ./vendor/bin/phpunit --version
+      - name: Test all test cases
+          php ./vendor/bin/phpunit
