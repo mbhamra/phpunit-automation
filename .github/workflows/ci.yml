@@ -14,4 +14,5 @@ jobs:
         run: |
           php ./vendor/bin/phpunit --version
       - name: Test all test cases
+        run: |
           php ./vendor/bin/phpunit
