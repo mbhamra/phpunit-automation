@@ -11,5 +11,5 @@ jobs:
       - uses: php-actions/composer@v6 # or alternative dependency management
       - uses: php-actions/phpunit@v3
       - name: Check version of installed PHPUnit
-      run: |
-        php ./vendor/bin/phpunit --version
+        run: |
+          php ./vendor/bin/phpunit --version
