@@ -15,4 +15,4 @@ jobs:
           php ./vendor/bin/phpunit --version
       - name: Test all test cases
         run: |
-          php ./vendor/bin/phpunit --do-not-cache-result
+          sudo php ./vendor/bin/phpunit --do-not-cache-result
