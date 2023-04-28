@@ -5,11 +5,23 @@ on: [push]
 jobs:
   build-test:
     runs-on: ubuntu-latest
-
+    mysql:
+      image: mysql:8.0
+      env:
+        MYSQL_DATABASE: learn_phpunit
+        MYSQL_USER: root
+        MYSQL_PASSWORD: root
+        MYSQL_ROOT_PASSWORD: root
+      ports:
+        - 33306:3306
+      options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v3
       - uses: php-actions/composer@v6 # or alternative dependency management
       - uses: php-actions/phpunit@v3
+      - name: Set up MySQL
+        run: |
+          sudo /etc/init.d/mysql start
       - name: Check version of installed PHPUnit
         run: |
           php ./vendor/bin/phpunit --version
