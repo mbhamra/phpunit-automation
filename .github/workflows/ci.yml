@@ -29,7 +29,7 @@ jobs:
           cp .env.test .env.test.local && echo "DATABASE_URL=\"mysql://app_user:root12345678@127.0.0.1:3306/learn_phpunit?serverVersion=8&charset=utf8mb4\"" >> .env.test.local
       - name: Create db and run migrations
         run: |
-          php bin/console doctrine:database:create && php bin/console doctrine:migration:migrate --no-interaction
+          php bin/console doctrine:migration:migrate --no-interaction
       - name: Check version of installed PHPUnit
         run: |
           php ./vendor/bin/phpunit --version
