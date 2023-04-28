@@ -25,7 +25,7 @@ jobs:
           sudo /etc/init.d/mysql start
       - name: Check mysql data
         run: |
-          mysql -u app_user -proot12345678 -e "show databases;"
+          mysql -u root -proot12345678 -e "show databases;"
       - name: Write DB Config in env test local
         run: |
           cp .env .env.local && echo "DATABASE_URL=\"mysql://app_user:root12345678@127.0.0.1:3306/learn_phpunit?serverVersion=8&charset=utf8mb4\"" >> .env.local
